@@ -1,11 +1,24 @@
 {% macro render_header() %}
 {% set section = get_section(path="_index.md") %}
-<a href="{{ section.permalink }}">
+<div>
+<a class="header_logo" href="{{ section.permalink }}">
     <div class="logo">
         <img src="{{ get_url(path=config.extra.juice_logo_path) }}" alt="logo">
         {{ config.extra.juice_logo_name }}
     </div>
 </a>
+
+<div class="topnav">
+  <div id="myLinks">
+    {% for page in section.pages %}
+    <a href="{{ page.permalink }}">{{ page.title }}</a>
+    {% endfor %}
+  </div>
+  <a href="javascript:void(0);" class="icon" onclick="myFunction()">
+    <i class="fa fa-bars"></i>
+  </a>
+</div>
+</div>
 
 <nav>
     {% for page in section.pages %}
@@ -17,4 +30,15 @@
         {% endfor %}
     {% endif %}
 </nav>
+
+<script>
+function myFunction() {
+  var x = document.getElementById("myLinks");
+  if (x.style.display === "block") {
+    x.style.display = "none";
+  } else {
+    x.style.display = "block";
+  }
+}
+</script>
 {% endmacro render_header %}
