@@ -10,6 +10,7 @@
 
 <div class="topnav">
   <div id="myLinks">
+    <a href="/">Home</a>
     {% for page in section.pages %}
     <a href="{{ page.permalink }}">{{ page.title }}</a>
     {% endfor %}
@@ -21,6 +22,7 @@
 </div>
 
 <nav>
+    <a class="nav-item subtitle-text" href="/">Home</a>
     {% for page in section.pages %}
     <a class="nav-item subtitle-text" href="{{ page.permalink }}">{{ page.title }}</a>
     {% endfor %}
